@@ -1,0 +1,32 @@
+name: test-runner
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Installing dependencies & initial setup
+        run: |
+          npm install 
+          npx prisma generate
+
+      - name: Running code tests
+        run: npx jest --testPathPattern=code
+
