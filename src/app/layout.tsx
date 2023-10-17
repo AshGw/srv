@@ -1,8 +1,9 @@
-import './globals.scss';
+import './styles/globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-import SessionProvider from '@/app/components/extras/SessionProvider';
+import { ThemeProvider } from '@/app/components/extras/theme-provider';
+import SessionProvider from '@/app/components/auth/SessionProvider';
 import { getServerSession } from 'next-auth';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -22,7 +23,14 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+      <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
         <SessionProvider session={session}>{children}</SessionProvider>
+      </ThemeProvider>
       </body>
     </html>
   );
