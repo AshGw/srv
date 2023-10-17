@@ -1,12 +1,12 @@
 {
-    "recommendations": [
-      "mgmcdermott.vscode-language-babel",
-      "mhutchie.git-graph",
-      "ms-vscode.vscode-typescript-next",
-      "Prisma.prisma",
-      "PulkitGangwar.nextjs-snippets",
-      "rvest.vs-code-prettier-eslint",
-      "unifiedjs.vscode-mdx",
-      "Zignd.html-css-class-completion"
-    ]
-  }
+  "recommendations": [
+    "mgmcdermott.vscode-language-babel",
+    "mhutchie.git-graph",
+    "ms-vscode.vscode-typescript-next",
+    "Prisma.prisma",
+    "PulkitGangwar.nextjs-snippets",
+    "rvest.vs-code-prettier-eslint",
+    "unifiedjs.vscode-mdx",
+    "Zignd.html-css-class-completion"
+  ]
+}
