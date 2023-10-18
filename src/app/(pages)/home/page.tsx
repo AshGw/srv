@@ -1,10 +1,10 @@
-'use client'
+import Load from "@/app/components/reusables/loader";
 
-import NavMenu from "@/app/components/home/navbar/navigation-menue";
-function page() {
+export default function Maia(){
   return (
-    <div><NavMenu></NavMenu></div>
-  )
+    <div className="flex justify-center items-center min-h-screen">
+      <Load></Load>
+    </div>
+  );
 }
 
-export default page

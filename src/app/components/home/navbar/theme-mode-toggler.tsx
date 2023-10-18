@@ -1,10 +1,11 @@
-import { ModeToggle } from "@/app/components/reusables/theme-mode-toggler";
-
+import { ModeToggle } from '@/app/components/reusables/theme-mode-toggler';
 
 function ThemeToggler() {
   return (
-    <div><ModeToggle></ModeToggle></div>
-  )
+    <div>
+      <ModeToggle></ModeToggle>
+    </div>
+  );
 }
 
-export default ThemeToggler
+export default ThemeToggler;
