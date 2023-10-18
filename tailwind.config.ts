@@ -17,7 +17,7 @@ module.exports = {
     },
     extend: {
       fontWeight: {
-        'base': 400,
+        base: 400,
       },
       colors: {
         border: 'hsl(var(--border))',

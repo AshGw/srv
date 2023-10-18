@@ -1,36 +1,10 @@
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-  } from "@/app/components/ui/dropdown-menu"
-  
-  import { Avatar, AvatarFallback, AvatarImage } from "@/app/components/ui/avatar"
+'use client'
 
-
-function home() {
-  return <div>
-<DropdownMenu>
-  <DropdownMenuTrigger><Avatar>
-  <AvatarImage src="https://github.com/shadcn.png" />
-  <AvatarFallback>CN</AvatarFallback>
-</Avatar>
-</DropdownMenuTrigger>
-  <DropdownMenuContent>
-    <DropdownMenuLabel>official.user@gmail.com</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem>Profile</DropdownMenuItem>
-    <DropdownMenuItem>Billing</DropdownMenuItem>
-    <DropdownMenuItem>Team</DropdownMenuItem>
-    <DropdownMenuItem>Subscription</DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>
-
-
-
-  </div>;
+import NavMenu from "@/app/components/home/navbar/navigation-menue";
+function page() {
+  return (
+    <div><NavMenu></NavMenu></div>
+  )
 }
 
-export default home;
+export default page
