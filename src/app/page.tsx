@@ -1,26 +1,16 @@
-import React from 'react';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/app/components/ui/accordion';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
 
-function page() {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+
+import { NavHoverable } from '@/app/components/nav/min-nav';
+import FullNavbarMenue from '@/app/components/nav/navbar';
+export default function Home() {
   return (
     <div>
-      <div className="flex justify-center items-center">
-        <Accordion type="single" collapsible>
-          <AccordionItem value="item-1">
-            <AccordionTrigger>Is it accessible?</AccordionTrigger>
-            <AccordionContent>
-              Yes. It adheres to the WAI-ARIA design pattern.
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </div>
+      <FullNavbarMenue mt-5></FullNavbarMenue>
     </div>
   );
 }
-
-export default page;

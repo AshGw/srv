@@ -14,6 +14,7 @@ import {
 import ModeToggle from '@/app/components/nav/theme-mode-toggler';
 import FullMeDropDownMenue from '@/app/components/nav/avatar-drop-down-menue';
 import Logo from './logo';
+import SCDropDownMenue from '@/app/components/nav/sm-left-drop-down';
 
 import { NavHoverable } from './min-nav';
 
@@ -61,26 +62,8 @@ export default function NavBar() {
           <FullMeDropDownMenue></FullMeDropDownMenue>
         </NavbarItem>
       </NavbarContent>
-
       <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={
-                index === 2
-                  ? 'warning'
-                  : index === menuItems.length - 1
-                  ? 'danger'
-                  : 'foreground'
-              }
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
+       <SCDropDownMenue></SCDropDownMenue>
       </NavbarMenu>
     </Navbar>
   );

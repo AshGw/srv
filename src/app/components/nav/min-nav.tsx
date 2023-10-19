@@ -69,9 +69,7 @@ export function NavHoverable() {
                     href="/"
                   >
                     <Logo />
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                      Rovxr
-                    </div>
+                    <div className="mb-2 mt-4 text-lg font-medium">Rovxr</div>
                     <p className="text-sm leading-tight text-muted-foreground">
                       Beautifully designed components built with Radix UI and
                       Tailwind CSS.
