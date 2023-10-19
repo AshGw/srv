@@ -10,13 +10,15 @@ import {
   NavbarContent,
   NavbarItem,
   Link,
-  Button,
 } from '@nextui-org/react';
-import { Image } from '@nextui-org/react';
 import ThemeToggler from '@/app/components/pages/home/navbar/theme-mode-toggler';
 import FullMeDropDownMenue from '@/app/components/reusables/full-drop-down';
 import Logo from './logo';
-export default function App() {
+
+
+
+
+export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
@@ -67,7 +69,7 @@ export default function App() {
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
+        <NavbarItem className="lg:flex">
           <ThemeToggler></ThemeToggler>
         </NavbarItem>
         <NavbarItem>

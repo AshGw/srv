@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import LogoLight from '@/../public/assets/logo-for-light-mode.png';
 import { useTheme } from 'next-themes';
 
@@ -12,12 +13,14 @@ function Logo() {
 
     return (
         <div className="flex items-center justify-center m-5 p-5">
+          <Link href={'/'}>
             <Image
                 src={theme === 'light' ? logoSourceLight : logoSourceDark}
                 alt="LOGO"
                 width={45}
                 height={45}
             />
+          </Link>
         </div>
     );
 }

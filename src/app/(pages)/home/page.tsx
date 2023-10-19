@@ -6,11 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 import FullMeDropDownMenue from '@/app/components/reusables/full-drop-down';
+import FullNavbarMenue from '@/app/components/nav/navbar';
 export default function Home() {
   return (
-    <div className="container">
-      <main className="p-5 m-5"></main>
-      <FullMeDropDownMenue mt-5></FullMeDropDownMenue>
+    <div>
+      <FullNavbarMenue mt-5></FullNavbarMenue>
     </div>
   );
 }
