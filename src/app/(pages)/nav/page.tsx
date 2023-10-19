@@ -1,47 +1,53 @@
+'use client';
 
-'use client'
-
-import React from "react";
-import {Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
-import { Image } from "@nextui-org/react";
-import ThemeToggler from "@/app/components/pages/home/navbar/theme-mode-toggler";
-import FullMeDropDownMenue from "@/app/components/reusables/full-drop-down";
-import  Logo  from "./logo";
+import React from 'react';
+import {
+  Navbar,
+  NavbarBrand,
+  NavbarMenuToggle,
+  NavbarMenuItem,
+  NavbarMenu,
+  NavbarContent,
+  NavbarItem,
+  Link,
+  Button,
+} from '@nextui-org/react';
+import { Image } from '@nextui-org/react';
+import ThemeToggler from '@/app/components/pages/home/navbar/theme-mode-toggler';
+import FullMeDropDownMenue from '@/app/components/reusables/full-drop-down';
+import Logo from './logo';
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    'Profile',
+    'Dashboard',
+    'Activity',
+    'Analytics',
+    'System',
+    'Deployments',
+    'My Settings',
+    'Team Settings',
+    'Help & Feedback',
+    'Log Out',
   ];
 
   return (
-    <Navbar
-      isBordered
-      isMenuOpen={isMenuOpen}
-      onMenuOpenChange={setIsMenuOpen}
-    >
+    <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
       <NavbarContent className="sm:hidden" justify="start">
-        <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} />
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+        />
       </NavbarContent>
       <NavbarContent className="sm:hidden pr-3" justify="center">
-      <NavbarBrand> 
-        <Logo></Logo>
+        <NavbarBrand>
+          <Logo></Logo>
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarBrand>
-            <Logo></Logo>
-
+          <Logo></Logo>
         </NavbarBrand>
         <NavbarItem>
           <Link color="foreground" href="#">
@@ -62,11 +68,10 @@ export default function App() {
 
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <ThemeToggler></ThemeToggler>
         </NavbarItem>
         <NavbarItem>
-            <FullMeDropDownMenue>
-            </FullMeDropDownMenue>
+          <FullMeDropDownMenue></FullMeDropDownMenue>
         </NavbarItem>
       </NavbarContent>
 
@@ -76,7 +81,11 @@ export default function App() {
             <Link
               className="w-full"
               color={
-                index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
+                index === 2
+                  ? 'warning'
+                  : index === menuItems.length - 1
+                  ? 'danger'
+                  : 'foreground'
               }
               href="#"
               size="lg"
