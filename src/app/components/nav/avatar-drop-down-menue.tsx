@@ -47,6 +47,7 @@ import {
 
 export default function FullMeDropDownMenue() {
   return (
+    <div className="cursor-pointer">
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Avatar>
@@ -123,5 +124,6 @@ export default function FullMeDropDownMenue() {
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+    </div>
   );
 }

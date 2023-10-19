@@ -11,8 +11,6 @@ export default function Home() {
   return (
     <div>
       <FullNavbarMenue mt-5></FullNavbarMenue>
-      <div m-5 p-5></div>
-      <NavHoverable></NavHoverable>
     </div>
   );
 }

@@ -11,9 +11,11 @@ import {
   NavbarItem,
   Link,
 } from '@nextui-org/react';
-import ModeToggle  from '@/app/components/nav/theme-mode-toggler';
-import FullMeDropDownMenue from '@/app/components/nav/avatar-drop-down-menue'; 
+import ModeToggle from '@/app/components/nav/theme-mode-toggler';
+import FullMeDropDownMenue from '@/app/components/nav/avatar-drop-down-menue';
 import Logo from './logo';
+
+import { NavHoverable } from './min-nav';
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -48,21 +50,7 @@ export default function NavBar() {
         <NavbarBrand>
           <Logo></Logo>
         </NavbarBrand>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
-        </NavbarItem>
-        <NavbarItem isActive>
-          <Link href="#" aria-current="page">
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
-          </Link>
-        </NavbarItem>
+        <NavHoverable></NavHoverable>
       </NavbarContent>
 
       <NavbarContent justify="end">
