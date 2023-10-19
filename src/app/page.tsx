@@ -6,9 +6,6 @@ import {
   AccordionTrigger,
 } from '@/app/components/ui/accordion';
 
-import { Button } from './components/ui/button';
-import { ModeToggle } from './components/reusables/theme-mode-toggler';
-
 function page() {
   return (
     <div>
@@ -21,8 +18,6 @@ function page() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-        <Button>subsnine</Button>
-        <ModeToggle></ModeToggle>
       </div>
     </div>
   );
