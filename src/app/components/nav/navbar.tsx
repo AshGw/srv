@@ -18,7 +18,7 @@ import SCDropDownMenue from '@/app/components/nav/sm-left-drop-down';
 
 import { NavHoverable } from './min-nav';
 
-export default function NavBar() {
+export default function MainNavBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const menuItems = [
@@ -63,7 +63,7 @@ export default function NavBar() {
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
-       <SCDropDownMenue></SCDropDownMenue>
+        <SCDropDownMenue></SCDropDownMenue>
       </NavbarMenu>
     </Navbar>
   );

@@ -108,7 +108,7 @@ export function NavHoverable() {
         <NavigationMenuItem>
           <Link href="/docs" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
+              Examples
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
