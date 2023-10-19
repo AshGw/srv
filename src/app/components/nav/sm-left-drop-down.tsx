@@ -1,12 +1,6 @@
 'use client';
 
-import {
-    ChevronRight,
-    PackageOpen,
-    Wand2 ,
-    BrainCircuit,
-  } from 'lucide-react';
-
+import { ChevronRight, PackageOpen, Wand2, BrainCircuit } from 'lucide-react';
 
 import React from 'react';
 import { Listbox, ListboxItem } from '@nextui-org/react';
@@ -26,23 +20,23 @@ export default function SCDropDownMenue() {
         onAction={(key) => alert(key)} // pop a modal instead
       >
         <ListboxItem key="new">
-        <div className="flex justify-between items-center">
-          <span className="mr-4 font-normal text-xl">Getting Started</span>
-          <PackageOpen></PackageOpen>
-        </div>
+          <div className="flex justify-between items-center">
+            <span className="mr-4 font-normal text-xl">Getting Started</span>
+            <PackageOpen></PackageOpen>
+          </div>
         </ListboxItem>
 
         <ListboxItem key="copy">
-        <div className="flex justify-between items-center">
-          <span className="mr-4 font-normal text-xl">Models</span>
-          <BrainCircuit></BrainCircuit>
-        </div>
+          <div className="flex justify-between items-center">
+            <span className="mr-4 font-normal text-xl">Models</span>
+            <BrainCircuit></BrainCircuit>
+          </div>
         </ListboxItem>
         <ListboxItem key="edit">
-        <div className="flex justify-between items-center">
-          <span className="mr-4 font-normal text-xl">Examples</span>
-          <Wand2></Wand2>
-        </div>
+          <div className="flex justify-between items-center">
+            <span className="mr-4 font-normal text-xl">Examples</span>
+            <Wand2></Wand2>
+          </div>
         </ListboxItem>
       </Listbox>
     </ListboxWrapper>
