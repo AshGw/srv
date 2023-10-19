@@ -50,7 +50,7 @@ import {
     Test  correct code disposal 
     */
 
-export default function FullDropDownMenue() {
+export default function FullMeDropDownMenue() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

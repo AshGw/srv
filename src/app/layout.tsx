@@ -7,7 +7,6 @@ import { NextUIProv } from './components/providers/next-ui-provider';
 import { getServerSession } from 'next-auth';
 import SessionProvider from '@/app/components/providers/session-provider';
 
-
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -30,8 +29,9 @@ export default async function RootLayout({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-        ><NextUIProv>
-          <SessionProvider session={session}>{children}</SessionProvider>
+        >
+          <NextUIProv>
+            <SessionProvider session={session}>{children}</SessionProvider>
           </NextUIProv>
         </ThemeProvider>
       </body>
