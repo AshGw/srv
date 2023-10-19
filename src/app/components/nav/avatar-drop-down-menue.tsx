@@ -5,16 +5,11 @@ import {
   VenetianMask,
   ExternalLink,
   LogOut,
-  Mail,
   Receipt,
-  MessageSquare,
-  Plus,
-  PlusCircle,
   Settings,
   User,
   Coins,
   UserPlus,
-  Users,
 } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Button } from '@/app/components/ui/button';

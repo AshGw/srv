@@ -11,12 +11,9 @@ import {
   NavbarItem,
   Link,
 } from '@nextui-org/react';
-import ThemeToggler from '@/app/components/pages/home/navbar/theme-mode-toggler';
-import FullMeDropDownMenue from '@/app/components/reusables/full-drop-down';
+import ModeToggle  from '@/app/components/nav/theme-mode-toggler';
+import FullMeDropDownMenue from '@/app/components/nav/avatar-drop-down-menue'; 
 import Logo from './logo';
-
-
-
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -70,7 +67,7 @@ export default function NavBar() {
 
       <NavbarContent justify="end">
         <NavbarItem className="lg:flex">
-          <ThemeToggler></ThemeToggler>
+          <ModeToggle></ModeToggle>
         </NavbarItem>
         <NavbarItem>
           <FullMeDropDownMenue></FullMeDropDownMenue>
