@@ -13,7 +13,6 @@ import { Button } from '@/app/components/ui/button';
 
 import { redirect } from 'next/navigation';
 
-
 export default function AlertDialogDemo() {
   return (
     <AlertDialog>
@@ -23,13 +22,15 @@ export default function AlertDialogDemo() {
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Are you sure to log out?</AlertDialogTitle>
-          <AlertDialogDescription> 
+          <AlertDialogDescription>
             Youll need to log in agin to access the canvas.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={redirect('/')}>Continue</AlertDialogAction>
+          <AlertDialogAction onClick={redirect('/')}>
+            Continue
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

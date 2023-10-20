@@ -12,7 +12,7 @@ export default function Home() {
       <MainNavBar></MainNavBar>
       <div>
         <div>
-        <div className="mx-auto container sm:max-w-xl md:max-w-3xl lg:max-w-3xl xl:max-w-3xl">
+          <div className="mx-auto container sm:max-w-xl md:max-w-3xl lg:max-w-3xl xl:max-w-3xl">
             <PromptTextArea></PromptTextArea>
           </div>
         </div>
