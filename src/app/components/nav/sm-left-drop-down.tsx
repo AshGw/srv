@@ -21,20 +21,20 @@ export default function SCDropDownMenue() {
       >
         <ListboxItem key="new">
           <div className="flex  items-center">
-          <PackageOpen></PackageOpen>
+            <PackageOpen></PackageOpen>
             <span className="ml-2 font-normal text-xl">Getting Started</span>
           </div>
         </ListboxItem>
 
         <ListboxItem key="copy">
           <div className="flex items-center">
-          <BrainCircuit></BrainCircuit>
+            <BrainCircuit></BrainCircuit>
             <span className="ml-2 font-normal text-xl">AI Models</span>
           </div>
         </ListboxItem>
         <ListboxItem key="edit">
           <div className="flex items-center">
-          <Wand2></Wand2>
+            <Wand2></Wand2>
             <span className="ml-2 font-normal text-xl">Examples</span>
           </div>
         </ListboxItem>
