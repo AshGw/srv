@@ -6,7 +6,7 @@ export default function PromptTextArea() {
   return (
     <div>
       <div className="conatainer">
-        <div className="m-5 p-5">
+        <div className="my-5 py-5">
           <div className="grid w-full gap-2">
             <Textarea
               variant="underlined"
