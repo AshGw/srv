@@ -12,15 +12,17 @@ import {
 
 export default function ExampleCard() {
   // Conatining div  className="max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8"
-  
-    return (
+
+  return (
     <div>
       <Card
         isFooterBlurred
         className="w-full h-[300px] col-span-12 sm:col-span-5"
       >
         <CardHeader className="absolute z-10 top-1 flex-col items-start">
-          <p className="text-tiny text-white/60 uppercase font-bold">Astronaut</p>
+          <p className="text-tiny text-white/60 uppercase font-bold">
+            Astronaut
+          </p>
           <h4 className="text-black font-medium text-2xl"></h4>
         </CardHeader>
         <Image
@@ -33,7 +35,12 @@ export default function ExampleCard() {
           <div>
             <p className="opacity-75  font-bold">Stable Diffusion V1.5L</p>
           </div>
-          <Button className="opacity-75  font-medium" color="primary" radius="full" size="sm">
+          <Button
+            className="opacity-75  font-medium"
+            color="primary"
+            radius="full"
+            size="sm"
+          >
             Checkout
           </Button>
         </CardFooter>

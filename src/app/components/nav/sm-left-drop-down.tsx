@@ -20,22 +20,22 @@ export default function SCDropDownMenue() {
         onAction={(key) => alert(key)} // pop a modal instead
       >
         <ListboxItem key="new">
-          <div className="flex justify-between items-center">
-            <span className="mr-4 font-normal text-xl">Getting Started</span>
-            <PackageOpen></PackageOpen>
+          <div className="flex  items-center">
+          <PackageOpen></PackageOpen>
+            <span className="ml-2 font-normal text-xl">Getting Started</span>
           </div>
         </ListboxItem>
 
         <ListboxItem key="copy">
-          <div className="flex justify-between items-center">
-            <span className="mr-4 font-normal text-xl">Models</span>
-            <BrainCircuit></BrainCircuit>
+          <div className="flex items-center">
+          <BrainCircuit></BrainCircuit>
+            <span className="ml-2 font-normal text-xl">AI Models</span>
           </div>
         </ListboxItem>
         <ListboxItem key="edit">
-          <div className="flex justify-between items-center">
-            <span className="mr-4 font-normal text-xl">Examples</span>
-            <Wand2></Wand2>
+          <div className="flex items-center">
+          <Wand2></Wand2>
+            <span className="ml-2 font-normal text-xl">Examples</span>
           </div>
         </ListboxItem>
       </Listbox>

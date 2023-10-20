@@ -1,10 +1,10 @@
-import React from 'react'
-import ExampleCard from '@/app/components/pages/examples/example-card'
+import React from 'react';
+import ExampleCard from '@/app/components/pages/examples/example-card';
 
 export default function page() {
   return (
     <div>
-        <ExampleCard></ExampleCard>
+      <ExampleCard></ExampleCard>
     </div>
-  )
+  );
 }
