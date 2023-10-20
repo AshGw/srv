@@ -120,7 +120,7 @@ export default function FullMeDropDownMenue() {
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
-            <Button className="w-full">Upgrade</Button>
+            <Button className="w-full">Get Credit</Button>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

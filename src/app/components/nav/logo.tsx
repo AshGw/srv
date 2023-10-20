@@ -18,8 +18,8 @@ function Logo() {
         <Image
           src={theme === 'light' ? logoSourceLight : logoSourceDark}
           alt="LOGO"
-          width={45}
-          height={45}
+          width={40}
+          height={40}
         />
       </Link>
     </div>
