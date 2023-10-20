@@ -78,5 +78,18 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate'), nextui()],
+  plugins: [require('tailwindcss-animate'), nextui({      
+    layout: {
+    disabledOpacity: "0.3", // opacity-[0.3]
+    radius: {
+      small: "2px",
+      medium: "4px", 
+      large: "6px", 
+    },
+    borderWidth: {
+      small: "1px", 
+      medium: "1px", 
+      large: "2px",
+    },
+  },})],
 };
