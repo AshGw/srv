@@ -60,17 +60,17 @@ export default function FullMeDropDownMenue() {
             <DropdownMenuItem>
               <User className="mr-2 h-4 w-4" />
               <span>Profile</span>
-              <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+              <DropdownMenuShortcut className="hidden md:inline-block">⇧⌘P</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <CreditCard className="mr-2 h-4 w-4" />
               <span>Billing</span>
-              <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+              <DropdownMenuShortcut className="hidden md:inline-block">⌘B</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Settings className="mr-2 h-4 w-4" />
               <span>Settings</span>
-              <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+              <DropdownMenuShortcut className="hidden md:inline-block">⌘S</DropdownMenuShortcut>
             </DropdownMenuItem>
             <DropdownMenuItem disabled={true}>
               <Cloud className="mr-2 h-4 w-4" />
@@ -116,7 +116,7 @@ export default function FullMeDropDownMenue() {
           <DropdownMenuItem>
             <LogOut className="mr-2 h-4 w-4" />
             <span>Log out</span>
-            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+            <DropdownMenuShortcut className="hidden md:inline-block">⇧⌘Q</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem>

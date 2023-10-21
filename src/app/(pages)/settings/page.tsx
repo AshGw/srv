@@ -28,7 +28,7 @@ export default function AlertDialogDemo() {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction onClick={redirect('/')}>
+          <AlertDialogAction>
             Continue
           </AlertDialogAction>
         </AlertDialogFooter>
