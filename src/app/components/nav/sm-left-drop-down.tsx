@@ -1,6 +1,6 @@
 'use client';
 
-import { ChevronRight, PackageOpen, Wand2, BrainCircuit } from 'lucide-react';
+import { Rocket, PackageOpen, Wand2, BrainCircuit } from 'lucide-react';
 
 import React from 'react';
 import { Listbox, ListboxItem } from '@nextui-org/react';
@@ -21,7 +21,7 @@ export default function SCDropDownMenue() {
       >
         <ListboxItem key="new">
           <div className="flex  items-center">
-            <PackageOpen></PackageOpen>
+            <Rocket></Rocket>
             <span className="ml-2 font-normal text-xl">Getting Started</span>
           </div>
         </ListboxItem>
@@ -29,7 +29,7 @@ export default function SCDropDownMenue() {
         <ListboxItem key="copy">
           <div className="flex items-center">
             <BrainCircuit></BrainCircuit>
-            <span className="ml-2 font-normal text-xl">AI Models</span>
+            <span className="ml-2 font-normal text-xl">Models</span>
           </div>
         </ListboxItem>
         <ListboxItem key="edit">

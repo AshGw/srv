@@ -1,8 +1,12 @@
 'use client';
-import React from 'react';
+import React , {useState}from 'react';
 import { Textarea } from '@nextui-org/react';
 import { Button } from '../ui/button';
+import { Toaster, toast } from 'sonner'
+
+
 export default function PromptTextArea() {
+
   return (
     <div>
       <div className="conatainer">
@@ -13,7 +17,8 @@ export default function PromptTextArea() {
               labelPlacement="outside"
               placeholder="Your prompt.."
             />{' '}
-            <Button>Generate</Button>
+            <Button onClick={() => {toast.success('Image Generated')}} >Generate</Button>
+            <Toaster richColors/>
           </div>
         </div>
       </div>
