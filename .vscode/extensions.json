@@ -7,6 +7,7 @@
     "PulkitGangwar.nextjs-snippets",
     "rvest.vs-code-prettier-eslint",
     "unifiedjs.vscode-mdx",
-    "Zignd.html-css-class-completion"
+    "Zignd.html-css-class-completion",
+    "github.vscode-github-actions"
   ]
 }
