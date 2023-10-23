@@ -28,6 +28,7 @@ import {
   DropdownMenuTrigger,
 } from '@/app/components/ui/dropdown-menu';
 
+
 // Make a function to detect user actual API acces tho
 // rn shit is disabled
 
@@ -51,7 +52,7 @@ export default function FullMeDropDownMenue() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Avatar>
-            <AvatarImage src="https://github.com/ashgw.png" />
+            <AvatarImage src="https://github-production-user-asset-6210df.s3.amazonaws.com/126174609/277190495-5881e8eb-f372-4101-9850-837d99364587.png"/>
             <AvatarFallback>Me</AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
