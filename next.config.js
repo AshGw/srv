@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  productionBrowserSourceMaps: process.env.NODE_ENV !== 'production',
   images: {
     domains: [
       'lh3.googleusercontent.com',
