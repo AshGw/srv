@@ -11,7 +11,9 @@ export default function PromptTextArea() {
   const [bigPrompt, setbigPrompt] = React.useState(false);
   const [generatedImage, setGeneratedImage] = useState<string | null>('');
   const isDevelopment = process.env.NEXT_PUBLIC_NODE_ENV === 'development';
-  const apiUrl = isDevelopment ? process.env.NEXT_PUBLIC_DEV_URL: process.env.NEXT_PUBLIC_URL ;
+  const apiUrl = isDevelopment
+    ? process.env.NEXT_PUBLIC_DEV_URL
+    : process.env.NEXT_PUBLIC_URL;
 
   return (
     <div>
@@ -46,13 +48,10 @@ export default function PromptTextArea() {
                   setbigPrompt(false);
                   setDisable(true);
                   (async () => {
-                    let res = await fetch(
-                      apiUrl + '/api/generate',
-                      {
-                        method: 'POST',
-                        body: JSON.stringify({ value: value }),
-                      }
-                    );
+                    let res = await fetch(apiUrl + '/api/generate', {
+                      method: 'POST',
+                      body: JSON.stringify({ value: value }),
+                    });
                     console.log(res);
                     let blob = await res.blob();
                     const imageUrl = URL.createObjectURL(blob);
