@@ -116,7 +116,7 @@ export default function FullMeDropDownMenue() {
           </DropdownMenuItem>
           <DropdownMenuItem>
             <ExternalLink className="mr-2 h-4 w-4" />
-            <span>Rovxr Homepage</span>
+            <span>Homepage</span>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
