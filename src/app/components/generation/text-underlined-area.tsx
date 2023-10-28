@@ -10,7 +10,7 @@ export default function PromptTextArea() {
   const [value, setValue] = React.useState('');
   const [bigPrompt, setbigPrompt] = React.useState(false);
   const [generatedImage, setGeneratedImage] = useState<string | null>('');
- 
+
   return (
     <div>
       <div className="conatainer">
