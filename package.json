@@ -44,6 +44,7 @@
     "react-hook-form": "^7.47.0",
     "react-markdown": "^9.0.0",
     "sass": "^1.69.0",
+    "sharp": "^0.32.6",
     "sonner": "^1.0.3",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7",
