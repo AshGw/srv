@@ -10,11 +10,7 @@ export default function PromptTextArea() {
   const [value, setValue] = React.useState('');
   const [bigPrompt, setbigPrompt] = React.useState(false);
   const [generatedImage, setGeneratedImage] = useState<string | null>('');
-  const isDevelopment = process.env.NEXT_PUBLIC_NODE_ENV === 'development';
-  const apiUrl = isDevelopment
-    ? process.env.NEXT_PUBLIC_DEV_URL
-    : process.env.NEXT_PUBLIC_URL;
-
+ 
   return (
     <div>
       <div className="conatainer">
@@ -48,7 +44,7 @@ export default function PromptTextArea() {
                   setbigPrompt(false);
                   setDisable(true);
                   (async () => {
-                    let res = await fetch(apiUrl + '/api/generate', {
+                    let res = await fetch('/api/generate', {
                       method: 'POST',
                       body: JSON.stringify({ value: value }),
                     });
