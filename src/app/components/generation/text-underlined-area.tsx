@@ -10,7 +10,8 @@ export default function PromptTextArea() {
   const [value, setValue] = React.useState('');
   const [bigPrompt, setbigPrompt] = React.useState(false);
   const [generatedImage, setGeneratedImage] = useState<string | null>('');
-
+  const isDevelopment = process.env.NEXT_PUBLIC_NODE_ENV === 'development';
+  const apiUrl = isDevelopment ? process.env.NEXT_PUBLIC_DEV_URL: process.env.NEXT_PUBLIC_URL ;
 
   return (
     <div>
@@ -45,18 +46,20 @@ export default function PromptTextArea() {
                   setbigPrompt(false);
                   setDisable(true);
                   (async () => {
-                    let res = await fetch('http://localhost:3000/api/generate', {
+                    let res = await fetch(
+                      apiUrl + '/api/generate',
+                      {
                         method: 'POST',
                         body: JSON.stringify({ value: value }),
-                    });
+                      }
+                    );
                     console.log(res);
-                    let  blob = await res.blob()
+                    let blob = await res.blob();
                     const imageUrl = URL.createObjectURL(blob);
-                    setGeneratedImage(imageUrl)
+                    setGeneratedImage(imageUrl);
                     console.log('Image URL:', imageUrl);
                     setDisable(false);
-                })();
-                              
+                  })();
                 } catch (error) {
                   toast.error('Oops! Something went wrong.');
                   setDisable(false);
@@ -65,8 +68,14 @@ export default function PromptTextArea() {
             >
               Generate
             </Button>
-            {generatedImage && <Image src={generatedImage} alt="Generated" isBlurred={disable} isLoading={disable}/>}
-
+            {generatedImage && (
+              <Image
+                src={generatedImage}
+                alt="Generated"
+                isBlurred={disable}
+                isLoading={disable}
+              />
+            )}
             <Toaster richColors />
           </div>
         </div>
