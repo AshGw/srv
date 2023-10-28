@@ -1,14 +1,15 @@
 'use client';
 import React, { useState } from 'react';
 import { Textarea } from '@nextui-org/react';
+import { Image } from '@nextui-org/react';
 import { Button } from '../ui/button';
 import { Toaster, toast } from 'sonner';
 
 export default function PromptTextArea() {
-
   const [disable, setDisable] = useState(false);
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = React.useState('');
   const [bigPrompt, setbigPrompt] = React.useState(false);
+  const [generatedImage, setGeneratedImage] = useState<string | null>('');
 
 
   return (
@@ -26,33 +27,45 @@ export default function PromptTextArea() {
               onValueChange={setValue}
             />{' '}
             <Button
-            disabled={disable}
+              disabled={disable}
               onClick={async () => {
                 try {
                   if (!value) {
-                    toast.error("Can't generate nothing")
-                    return;}
-                  if (value.length > 255){
-                    setbigPrompt(true);
-                    toast.error("The prompt shouldn'be longer than 255 characters")
+                    toast.error("Can't generate nothing");
                     return;
                   }
+                  if (value.length > 255) {
+                    setbigPrompt(true);
+                    toast.error(
+                      "The prompt shouldn'be longer than 255 characters"
+                    );
+                    return;
+                  }
+                  toast.loading('Generating..');
                   setbigPrompt(false);
                   setDisable(true);
-                  toast('Spinning containers..');
-                  await new Promise(resolve => setTimeout(resolve, 2000));
-                  toast.success('Image Generated with: ' + value);
-
+                  (async () => {
+                    let res = await fetch('http://localhost:3000/api/generate', {
+                        method: 'POST',
+                        body: JSON.stringify({ value: value }),
+                    });
+                    console.log(res);
+                    let  blob = await res.blob()
+                    const imageUrl = URL.createObjectURL(blob);
+                    setGeneratedImage(imageUrl)
+                    console.log('Image URL:', imageUrl);
+                    setDisable(false);
+                })();
+                              
                 } catch (error) {
-                  console.error('Error fetching data:', error);
-                } finally {
-                  // Don't forget setDisable is called to re-enable the button
+                  toast.error('Oops! Something went wrong.');
                   setDisable(false);
                 }
-  }}
->
-  Generate
-</Button>
+              }}
+            >
+              Generate
+            </Button>
+            {generatedImage && <Image src={generatedImage} alt="Generated" isBlurred={disable} isLoading={disable}/>}
 
             <Toaster richColors />
           </div>
