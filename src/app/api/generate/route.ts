@@ -1,4 +1,6 @@
-export async function POST(req: Request) {
+import { NextRequest, NextResponse } from 'next/server';
+
+export async function POST(req: NextRequest) {
   try {
     const { value } = await req.json();
     let res = await fetch('https://jolly-still-lark.ngrok-free.app/generate', {
@@ -12,9 +14,15 @@ export async function POST(req: Request) {
     });
 
     if (!res.ok) {
-      return {
-        error: 'Some error happened on our server side',
-      };
+      return new NextResponse(
+        JSON.stringify('some error happened on the second server'),
+        {
+          status: 500,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
     }
 
     const contentType = res.headers.get('content-type');
@@ -23,27 +31,16 @@ export async function POST(req: Request) {
       return data;
     } else if (contentType && contentType.includes('image/jpeg')) {
       const blob = await res.blob();
-      return new Response(blob, { headers: { 'Content-Type': 'image/jpeg' } });
-    } else {
-      return {
-        error: `Unexpected content type: ${contentType}`,
-      };
+      return new NextResponse(blob, {
+        headers: { 'Content-Type': 'image/jpeg' },
+      });
     }
   } catch (error) {
-    return {
-      error: `Unexpected error: ${error}`,
-    };
+    return new NextResponse(JSON.stringify(error), {
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   }
 }
-
-(async () => {
-  let value = 'a pic of';
-  let res = await fetch(
-    'https://jolly-still-lark.ngrok-free.app/generate/api/generate',
-    {
-      method: 'POST',
-      body: JSON.stringify({ value: value }),
-    }
-  );
-  console.log(res);
-})();
