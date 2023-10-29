@@ -4,14 +4,15 @@ import { Textarea } from '@nextui-org/react';
 import { Image } from '@nextui-org/react';
 import { Button } from '../ui/button';
 import { Toaster, toast } from 'sonner';
+import {Switch} from "@nextui-org/react";
+
 
 export default function PromptTextArea() {
   const [disable, setDisable] = useState(false);
   const [value, setValue] = React.useState('');
   const [bigPrompt, setbigPrompt] = React.useState(false);
-  const [generatedImage, setGeneratedImage] = useState<string | null>(
-    'https://github-production-user-asset-6210df.s3.amazonaws.com/126174609/278848021-45145905-b05c-4e5a-a60d-55274e3e287a.jpg'
-  );
+  const [isEnhanced,setIsEnhanced] = React.useState(true);
+  const [generatedImage, setGeneratedImage] = useState<string | null>(null);
 
   return (
     <div>
@@ -30,8 +31,6 @@ export default function PromptTextArea() {
             <Button
               disabled={disable}
               onClick={async () => {
-                setbigPrompt(false);
-                setDisable(true);
                 if (!value) {
                   toast.error("Can't generate nothing");
                   return;
@@ -44,9 +43,11 @@ export default function PromptTextArea() {
                   return;
                 }
                 toast.loading('Generating..');
+                setbigPrompt(false);
+                setDisable(true);
                 try {
                   let res = await fetch(
-                    'https://jolly-still-lark.ngrok-free.app/generate',
+                    `https://jolly-still-lark.ngrok-free.app/generate/?enhance=${isEnhanced}`,
                     {
                       method: 'POST',
                       headers: {
@@ -89,12 +90,21 @@ export default function PromptTextArea() {
             >
               Generate
             </Button>
+            <div className="flex flex-col gap-2 m-2">
+              <div className='flex flex-col gap-2 justify-center items-center'>
+                <Switch defaultSelected color="primary"  isSelected={isEnhanced} onValueChange={setIsEnhanced}>
+                  Enhance
+                </Switch>  
+                <p className="hidden text-small text-default-500 ">Recommended to be enabled for small prompts: {isEnhanced ? "true" : "false"}</p>
+              </div>
+            </div>
             {generatedImage && (
               <Image
                 src={generatedImage}
                 alt="Generated"
                 isBlurred={disable}
                 isLoading={disable}
+                isZoomed={true}
               />
             )}
             <Toaster richColors />
