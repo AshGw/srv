@@ -9,7 +9,7 @@ export default function PromptTextArea() {
   const [disable, setDisable] = useState(false);
   const [value, setValue] = React.useState('');
   const [bigPrompt, setbigPrompt] = React.useState(false);
-  const [generatedImage, setGeneratedImage] = useState<string | null>('');
+  const [generatedImage, setGeneratedImage] = useState<string | null>('https://github-production-user-asset-6210df.s3.amazonaws.com/126174609/278848021-45145905-b05c-4e5a-a60d-55274e3e287a.jpg');
 
   return (
     <div>
@@ -28,35 +28,46 @@ export default function PromptTextArea() {
             <Button
               disabled={disable}
               onClick={async () => {
-                try {
-                  if (!value) {
-                    toast.error("Can't generate nothing");
-                    return;
-                  }
-                  if (value.length > 255) {
-                    setbigPrompt(true);
-                    toast.error(
-                      "The prompt shouldn'be longer than 255 characters"
-                    );
-                    return;
-                  }
-                  toast.loading('Generating..');
-                  setbigPrompt(false);
-                  setDisable(true);
-                  (async () => {
-                    let res = await fetch('/api/generate', {
+                setbigPrompt(false);
+                setDisable(true);
+                toast.loading('Generating..');
+                try { 
+                  let res = await fetch(
+                    'https://jolly-still-lark.ngrok-free.app/generate',
+                    {
                       method: 'POST',
-                      body: JSON.stringify({ value: value }),
-                    });
-                    console.log(res);
-                    let blob = await res.blob();
+                      headers: {
+                        'Content-Type': 'application/json',
+                        Authorization:
+                          'Bearer f8ae9e72a17052cee5bffb816fc724e3b9273c02e3f3483a95df4e98a9cce2b2',
+                      },
+                      body: JSON.stringify({ prompt: value }),
+                    }
+                  );
+
+                  if (!res.ok) {
+                    toast.error('Something went wrong with the server');
+                  }
+
+                  const contentType = res.headers.get('content-type');
+                  if (contentType && contentType.includes('application/json')) {
+                    const data = await res.json();
+                    toast.error(
+                      'Data type is JSON not image go check the server'
+                    );
+                  } else if (
+                    contentType &&
+                    contentType.includes('image/jpeg')
+                  ) {
+                    toast.success('Image generation went successful');
+
+                    const blob = await res.blob();
                     const imageUrl = URL.createObjectURL(blob);
                     setGeneratedImage(imageUrl);
-                    console.log('Image URL:', imageUrl);
                     setDisable(false);
-                  })();
+                  }
                 } catch (error) {
-                  toast.error('Oops! Something went wrong.');
+                  console.log('Some error with ur code G, check yosself')
                   setDisable(false);
                 }
               }}
