@@ -9,7 +9,9 @@ export default function PromptTextArea() {
   const [disable, setDisable] = useState(false);
   const [value, setValue] = React.useState('');
   const [bigPrompt, setbigPrompt] = React.useState(false);
-  const [generatedImage, setGeneratedImage] = useState<string | null>('https://github-production-user-asset-6210df.s3.amazonaws.com/126174609/278848021-45145905-b05c-4e5a-a60d-55274e3e287a.jpg');
+  const [generatedImage, setGeneratedImage] = useState<string | null>(
+    'https://github-production-user-asset-6210df.s3.amazonaws.com/126174609/278848021-45145905-b05c-4e5a-a60d-55274e3e287a.jpg'
+  );
 
   return (
     <div>
@@ -30,8 +32,19 @@ export default function PromptTextArea() {
               onClick={async () => {
                 setbigPrompt(false);
                 setDisable(true);
+                if (!value) {
+                  toast.error("Can't generate nothing");
+                  return;
+                }
+                if (value.length > 255) {
+                  setbigPrompt(true);
+                  toast.error(
+                    "The prompt shouldn'be longer than 255 characters"
+                  );
+                  return;
+                }
                 toast.loading('Generating..');
-                try { 
+                try {
                   let res = await fetch(
                     'https://jolly-still-lark.ngrok-free.app/generate',
                     {
@@ -47,14 +60,16 @@ export default function PromptTextArea() {
 
                   if (!res.ok) {
                     toast.error('Something went wrong with the server');
+                    setDisable(false);
                   }
 
                   const contentType = res.headers.get('content-type');
                   if (contentType && contentType.includes('application/json')) {
                     const data = await res.json();
                     toast.error(
-                      'Data type is JSON not image go check the server'
+                      'Data type is JSON, not an image go check the server'
                     );
+                    setDisable(false);
                   } else if (
                     contentType &&
                     contentType.includes('image/jpeg')
@@ -67,7 +82,7 @@ export default function PromptTextArea() {
                     setDisable(false);
                   }
                 } catch (error) {
-                  console.log('Some error with ur code G, check yosself')
+                  console.log('Some error with ur code G, check yosself');
                   setDisable(false);
                 }
               }}
