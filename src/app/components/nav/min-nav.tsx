@@ -18,39 +18,39 @@ import {
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: 'Alert Dialog',
-    href: '/docs/primitives/alert-dialog',
+    title: 'Zbla7ooun',
+    href: '/#',
     description:
-      'A modal dialog that interrupts the user with important content and expects a response.',
+      'some bullshit idk G',
   },
   {
-    title: 'Hover Card',
-    href: '/docs/primitives/hover-card',
+    title: 'Hover me G',
+    href: '/#',
     description:
-      'For sighted users to preview content available behind a link.',
+      'some bullshit idk G',
   },
   {
     title: 'Progress',
-    href: '/docs/primitives/progress',
+    href: '/#',
     description:
-      'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
+      'some bullshit idk G',
   },
   {
-    title: 'Scroll-area',
-    href: '/docs/primitives/scroll-area',
-    description: 'Visually or semantically separates content.',
+    title: 'CappnCrunch',
+    href: '/#',
+    description: 'some bullshit idk G',
   },
   {
-    title: 'Tabs',
-    href: '/docs/primitives/tabs',
+    title: 'extras',
+    href: '/#',
     description:
-      'A set of layered sections of content—known as tab panels—that are displayed one at a time.',
+      'clock in at a time.',
   },
   {
-    title: 'Tooltip',
-    href: '/docs/primitives/tooltip',
+    title: '7aaaafouzlig',
+    href: '/#',
     description:
-      'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
+      'some bullshit idk G',
   },
 ];
 
@@ -71,20 +71,20 @@ export function NavHoverable() {
                     <Logo />
                     <div className="mb-2 mt-4 text-lg font-medium">Rovxr</div>
                     <p className="text-sm leading-tight text-muted-foreground">
-                      Beautifully designed components built with Radix UI and
-                      Tailwind CSS.
+                      The site info
+                      Some other shit.
                     </p>
                   </a>
                 </NavigationMenuLink>
               </li>
               <ListItem href="/docs" title="Introduction">
-                Re-usable components built using Radix UI and Tailwind CSS.
+              Some Other BS check the docs or some 
               </ListItem>
               <ListItem href="/docs/installation" title="Installation">
-                How to install dependencies and structure your app.
+              Some Other BS check the docs or some 
               </ListItem>
-              <ListItem href="/docs/primitives/typography" title="Typography">
-                Styles for headings, paragraphs, lists...etc
+              <ListItem href="/docs/" title="API">
+                Some Other BS check the docs or some 
               </ListItem>
             </ul>
           </NavigationMenuContent>
