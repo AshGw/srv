@@ -4,14 +4,13 @@ import { Textarea } from '@nextui-org/react';
 import { Image } from '@nextui-org/react';
 import { Button } from '../ui/button';
 import { Toaster, toast } from 'sonner';
-import {Switch} from "@nextui-org/react";
-
+import { Switch } from '@nextui-org/react';
 
 export default function PromptTextArea() {
   const [disable, setDisable] = useState(false);
   const [value, setValue] = React.useState('');
   const [bigPrompt, setbigPrompt] = React.useState(false);
-  const [isEnhanced,setIsEnhanced] = React.useState(true);
+  const [isEnhanced, setIsEnhanced] = React.useState(true);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
 
   return (
@@ -91,11 +90,19 @@ export default function PromptTextArea() {
               Generate
             </Button>
             <div className="flex flex-col gap-2 m-2">
-              <div className='flex flex-col gap-2 justify-center items-center'>
-                <Switch defaultSelected color="primary"  isSelected={isEnhanced} onValueChange={setIsEnhanced}>
+              <div className="flex flex-col gap-2 justify-center items-center">
+                <Switch
+                  defaultSelected
+                  color="primary"
+                  isSelected={isEnhanced}
+                  onValueChange={setIsEnhanced}
+                >
                   Enhance
-                </Switch>  
-                <p className="hidden text-small text-default-500 ">Recommended to be enabled for small prompts: {isEnhanced ? "true" : "false"}</p>
+                </Switch>
+                <p className="hidden text-small text-default-500 ">
+                  Recommended to be enabled for small prompts:{' '}
+                  {isEnhanced ? 'true' : 'false'}
+                </p>
               </div>
             </div>
             {generatedImage && (
