@@ -4,6 +4,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import LogoLight from '@/../public/assets/logo-for-light-mode.png';
 import { useTheme } from 'next-themes';
+import { useEffect } from 'react';
+
+
+
+
+
 
 const logoSourceLight = LogoLight;
 const logoSourceDark =
