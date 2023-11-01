@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Cloud,
   FileText,
@@ -28,6 +30,11 @@ import {
   DropdownMenuTrigger,
 } from '@/app/components/ui/dropdown-menu';
 
+import { signIn, signOut, useSession } from 'next-auth/react';
+import { Skeleton } from "@/app/components/ui/skeleton"
+import Loading from '@/app/components/reusables/loading/loading';
+import { useState, useEffect } from 'react';
+
 // Make a function to detect user actual API acces tho
 // rn shit is disabled
 
@@ -46,13 +53,37 @@ import {
     */
 
 export default function FullMeDropDownMenue() {
+  const [imgSrc, setImgSrc] = useState("https://github-production-user-asset-6210df.s3.amazonaws.com/126174609/277190495-5881e8eb-f372-4101-9850-837d99364587.png");
+  const [disable, setDisable] = useState(true);
+  const [ctaContent, setCtaContent] = useState("Sign in");
+
+  const { data: session } = useSession();
+
+  const clinetBuysCredits = () => {
+    // pass for now 
+  }; 
+  const clientSignsIn = () => {
+    signIn("google"); 
+  }; 
+
+  useEffect(() => {
+    if (session) {
+      setDisable(false)
+      setCtaContent('Get Credits')
+      const image = session.user?.image as string;
+      if (image !== imgSrc) {
+        setImgSrc(image);
+      }
+    }
+  }, [session, imgSrc,disable, ctaContent]);
+
   return (
     <div className="cursor-pointer">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Avatar>
-            <AvatarImage src="https://github-production-user-asset-6210df.s3.amazonaws.com/126174609/277190495-5881e8eb-f372-4101-9850-837d99364587.png" />
-            <AvatarFallback>Me</AvatarFallback>
+            <AvatarImage src={imgSrc} />
+            <AvatarFallback><Skeleton className="rounded-full" /></AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
@@ -119,16 +150,25 @@ export default function FullMeDropDownMenue() {
             <span>Homepage</span>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
+          <DropdownMenuItem onClick={()=> signOut()} disabled={disable}>
             <LogOut className="mr-2 h-4 w-4" />
-            <span>Log out</span>
+              <span>Log out</span>
             <DropdownMenuShortcut className="hidden md:inline-block">
               ⇧⌘Q
             </DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
-            <Button className="w-full">Get Credit</Button>
+            <Button className="w-full" onClick={
+              () => {
+                if (session) {
+                  clinetBuysCredits(); 
+                }
+                else {
+                  clientSignsIn(); 
+                }
+              }
+            } >{ctaContent}</Button>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
