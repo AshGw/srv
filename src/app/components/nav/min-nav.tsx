@@ -20,20 +20,17 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: 'Zbla7ooun',
     href: '/#',
-    description:
-      'some bullshit idk G',
+    description: 'some bullshit idk G',
   },
   {
     title: 'Hover me G',
     href: '/#',
-    description:
-      'some bullshit idk G',
+    description: 'some bullshit idk G',
   },
   {
     title: 'Progress',
     href: '/#',
-    description:
-      'some bullshit idk G',
+    description: 'some bullshit idk G',
   },
   {
     title: 'CappnCrunch',
@@ -43,14 +40,12 @@ const components: { title: string; href: string; description: string }[] = [
   {
     title: 'extras',
     href: '/#',
-    description:
-      'clock in at a time.',
+    description: 'clock in at a time.',
   },
   {
     title: '7aaaafouzlig',
     href: '/#',
-    description:
-      'some bullshit idk G',
+    description: 'some bullshit idk G',
   },
 ];
 
@@ -71,20 +66,19 @@ export function NavHoverable() {
                     <Logo />
                     <div className="mb-2 mt-4 text-lg font-medium">Rovxr</div>
                     <p className="text-sm leading-tight text-muted-foreground">
-                      The site info
-                      Some other shit.
+                      The site info Some other shit.
                     </p>
                   </a>
                 </NavigationMenuLink>
               </li>
               <ListItem href="/docs" title="Introduction">
-              Some Other BS check the docs or some 
+                Some Other BS check the docs or some
               </ListItem>
               <ListItem href="/docs/installation" title="Installation">
-              Some Other BS check the docs or some 
+                Some Other BS check the docs or some
               </ListItem>
               <ListItem href="/docs/" title="API">
-                Some Other BS check the docs or some 
+                Some Other BS check the docs or some
               </ListItem>
             </ul>
           </NavigationMenuContent>

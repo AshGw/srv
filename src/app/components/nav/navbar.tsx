@@ -22,36 +22,40 @@ export default function MainNavBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
-    <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
-      <NavbarContent className="sm:hidden" justify="start">
-        <NavbarMenuToggle
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-        />
-      </NavbarContent>
-      <NavbarContent className="sm:hidden pr-3" justify="center">
-        <NavbarBrand>
-          <Logo></Logo>
-        </NavbarBrand>
-      </NavbarContent>
+    <header>
+      <nav>
+        <Navbar isBordered isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+          <NavbarContent className="sm:hidden" justify="start">
+            <NavbarMenuToggle
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            />
+          </NavbarContent>
+          <NavbarContent className="sm:hidden pr-3" justify="center">
+            <NavbarBrand>
+              <Logo></Logo>
+            </NavbarBrand>
+          </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarBrand>
-          <Logo></Logo>
-        </NavbarBrand>
-        <NavHoverable></NavHoverable>
-      </NavbarContent>
+          <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            <NavbarBrand>
+              <Logo></Logo>
+            </NavbarBrand>
+            <NavHoverable></NavHoverable>
+          </NavbarContent>
 
-      <NavbarContent justify="end">
-        <NavbarItem className="lg:flex">
-          <ModeToggle></ModeToggle>
-        </NavbarItem>
-        <NavbarItem>
-          <FullMeDropDownMenue></FullMeDropDownMenue>
-        </NavbarItem>
-      </NavbarContent>
-      <NavbarMenu>
-        <SCDropDownMenue></SCDropDownMenue>
-      </NavbarMenu>
-    </Navbar>
+          <NavbarContent justify="end">
+            <NavbarItem className="lg:flex">
+              <ModeToggle></ModeToggle>
+            </NavbarItem>
+            <NavbarItem>
+              <FullMeDropDownMenue></FullMeDropDownMenue>
+            </NavbarItem>
+          </NavbarContent>
+          <NavbarMenu>
+            <SCDropDownMenue></SCDropDownMenue>
+          </NavbarMenu>
+        </Navbar>
+      </nav>
+    </header>
   );
 }

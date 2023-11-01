@@ -26,5 +26,5 @@ export const authOptions: NextAuthOptions = {
   debug: process.env.NEXT_ENV === 'development',
 };
 
-export const handler = NextAuth(authOptions); 
-export { handler as GET , handler as POST}; 
+export const handler = NextAuth(authOptions);
+export { handler as GET, handler as POST };
