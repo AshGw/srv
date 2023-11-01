@@ -6,11 +6,6 @@ import LogoLight from '@/../public/assets/logo-for-light-mode.png';
 import { useTheme } from 'next-themes';
 import { useEffect } from 'react';
 
-
-
-
-
-
 const logoSourceLight = LogoLight;
 const logoSourceDark =
   'https://github-production-user-asset-6210df.s3.amazonaws.com/126174609/275323996-cf3911ab-d85a-43b1-95cd-4dd96e247db1.png';

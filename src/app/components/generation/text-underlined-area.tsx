@@ -6,6 +6,7 @@ import { Button } from '../ui/button';
 import { Toaster, toast } from 'sonner';
 import { Switch } from '@nextui-org/react';
 
+
 export default function PromptTextArea() {
   const [disable, setDisable] = useState(false);
   const [value, setValue] = React.useState('');
@@ -91,17 +92,17 @@ export default function PromptTextArea() {
             </Button>
             <div className="flex flex-col gap-2 m-2">
               <div className="flex flex-col gap-2 justify-center items-center">
-                <Switch
-                  defaultSelected
-                  color="primary"
-                  isSelected={raw}
-                  onValueChange={setRaw}
-                >
-                  Raw
-                </Switch>
-                <p className=" text-small text-default-500 ">
-                  Will run the prompts as is and won&apos;t add additional words :{' '}
-                  {raw ? 'true' : 'false'}
+                  <Switch
+                    defaultSelected
+                    color="primary"
+                    isSelected={raw}
+                    onValueChange={setRaw}
+                  >
+                    Raw
+                  </Switch>
+                <p className=" hidden text-small text-default-500 ">
+                  Will run the prompts as is and won&apos;t add additional words
+                  : {raw ? 'true' : 'false'}
                 </p>
               </div>
             </div>
