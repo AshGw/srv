@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import {
   Cloud,
@@ -31,7 +31,7 @@ import {
 } from '@/app/components/ui/dropdown-menu';
 
 import { signIn, signOut, useSession } from 'next-auth/react';
-import { Skeleton } from "@/app/components/ui/skeleton"
+import { Skeleton } from '@/app/components/ui/skeleton';
 import Loading from '@/app/components/reusables/loading/loading';
 import { useState, useEffect } from 'react';
 
@@ -53,29 +53,31 @@ import { useState, useEffect } from 'react';
     */
 
 export default function FullMeDropDownMenue() {
-  const [imgSrc, setImgSrc] = useState("https://github-production-user-asset-6210df.s3.amazonaws.com/126174609/277190495-5881e8eb-f372-4101-9850-837d99364587.png");
+  const [imgSrc, setImgSrc] = useState(
+    'https://github-production-user-asset-6210df.s3.amazonaws.com/126174609/277190495-5881e8eb-f372-4101-9850-837d99364587.png'
+  );
   const [disable, setDisable] = useState(true);
-  const [ctaContent, setCtaContent] = useState("Sign in");
+  const [ctaContent, setCtaContent] = useState('Sign in');
 
   const { data: session } = useSession();
 
   const clinetBuysCredits = () => {
-    // pass for now 
-  }; 
+    // pass for now
+  };
   const clientSignsIn = () => {
-    signIn("google"); 
-  }; 
+    signIn('google');
+  };
 
   useEffect(() => {
     if (session) {
-      setDisable(false)
-      setCtaContent('Get Credits')
+      setDisable(false);
+      setCtaContent('Get Credits');
       const image = session.user?.image as string;
       if (image !== imgSrc) {
         setImgSrc(image);
       }
     }
-  }, [session, imgSrc,disable, ctaContent]);
+  }, [session, imgSrc, disable, ctaContent]);
 
   return (
     <div className="cursor-pointer">
@@ -83,7 +85,9 @@ export default function FullMeDropDownMenue() {
         <DropdownMenuTrigger asChild>
           <Avatar>
             <AvatarImage src={imgSrc} />
-            <AvatarFallback><Skeleton className="rounded-full" /></AvatarFallback>
+            <AvatarFallback>
+              <Skeleton className="rounded-full" />
+            </AvatarFallback>
           </Avatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
@@ -150,25 +154,27 @@ export default function FullMeDropDownMenue() {
             <span>Homepage</span>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem onClick={()=> signOut()} disabled={disable}>
+          <DropdownMenuItem onClick={() => signOut()} disabled={disable}>
             <LogOut className="mr-2 h-4 w-4" />
-              <span>Log out</span>
+            <span>Log out</span>
             <DropdownMenuShortcut className="hidden md:inline-block">
               ⇧⌘Q
             </DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
-            <Button className="w-full" onClick={
-              () => {
+            <Button
+              className="w-full"
+              onClick={() => {
                 if (session) {
-                  clinetBuysCredits(); 
+                  clinetBuysCredits();
+                } else {
+                  clientSignsIn();
                 }
-                else {
-                  clientSignsIn(); 
-                }
-              }
-            } >{ctaContent}</Button>
+              }}
+            >
+              {ctaContent}
+            </Button>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
