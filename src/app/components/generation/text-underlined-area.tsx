@@ -10,7 +10,7 @@ export default function PromptTextArea() {
   const [disable, setDisable] = useState(false);
   const [value, setValue] = React.useState('');
   const [bigPrompt, setbigPrompt] = React.useState(false);
-  const [isEnhanced, setIsEnhanced] = React.useState(true);
+  const [raw, setRaw] = React.useState(true);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
 
   return (
@@ -46,7 +46,7 @@ export default function PromptTextArea() {
                 setDisable(true);
                 try {
                   let res = await fetch(
-                    `https://jolly-still-lark.ngrok-free.app/generate/?enhance=${isEnhanced}`,
+                    `https://jolly-still-lark.ngrok-free.app/generate/?enhance=${!raw}`,
                     {
                       method: 'POST',
                       headers: {
@@ -94,14 +94,14 @@ export default function PromptTextArea() {
                 <Switch
                   defaultSelected
                   color="primary"
-                  isSelected={isEnhanced}
-                  onValueChange={setIsEnhanced}
+                  isSelected={raw}
+                  onValueChange={setRaw}
                 >
-                  Enhance
+                  Raw
                 </Switch>
-                <p className="hidden text-small text-default-500 ">
-                  Recommended to be enabled for small prompts:{' '}
-                  {isEnhanced ? 'true' : 'false'}
+                <p className=" text-small text-default-500 ">
+                  Will run the prompts as is and won&apos;t add additional words :{' '}
+                  {raw ? 'true' : 'false'}
                 </p>
               </div>
             </div>
