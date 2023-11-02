@@ -5,17 +5,19 @@ pub fn overlay_images(logo_image: DynamicImage, main_image: DynamicImage) -> Dyn
 
     let (main_width, main_height) = main_rgba.dimensions();
 
-    let logo_width = 105;
-    let logo_height = 18;
+    let logo_width = 830;
+    let logo_height = 142;
 
-    // Set the margin value
     let margin = 10;
 
-    // Adjust the position with the margin
     let logo_position_x = main_width - logo_width - margin;
     let logo_position_y = main_height - logo_height - margin;
 
-    let resized_logo = logo_image.resize_exact(logo_width, logo_height, imageops::FilterType::Nearest);
+    let resized_logo = logo_image.resize_exact(
+        logo_width,
+        logo_height,
+        imageops::FilterType::Lanczos3, 
+    );
 
     let logo_rgba = resized_logo.to_rgba8();
 
