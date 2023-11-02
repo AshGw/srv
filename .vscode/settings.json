@@ -1,3 +1,14 @@
 {
-  "deepscan.ignoreConfirmWarning": true
+  "deepscan.ignoreConfirmWarning": true,
+  "rust-analyzer.linkedProjects": [
+    "./Cargo.toml",
+    "./Cargo.toml",
+    "./Cargo.toml",
+    "./Cargo.toml",
+    "./Cargo.toml",
+    "./Cargo.toml",
+    "./Cargo.toml",
+    "./Cargo.toml",
+    "./Cargo.toml"
+  ]
 }

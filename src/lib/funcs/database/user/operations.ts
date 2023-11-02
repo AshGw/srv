@@ -1,8 +1,7 @@
 import { prisma } from '@/lib/funcs/database/db/client';
 import { isGmail, gmailParser } from '@/lib/funcs/reusables/gmail-parser';
 
-
-const STARTER_ACCOUNT_CREDITS =  100; 
+const STARTER_ACCOUNT_CREDITS = 100;
 
 export async function addUserIfNotExists(email: string) {
   try {
