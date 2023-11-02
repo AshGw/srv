@@ -8,6 +8,7 @@
     "rvest.vs-code-prettier-eslint",
     "unifiedjs.vscode-mdx",
     "Zignd.html-css-class-completion",
-    "github.vscode-github-actions"
+    "github.vscode-github-actions",
+    "rust-lang.rust-analyzer"
   ]
 }

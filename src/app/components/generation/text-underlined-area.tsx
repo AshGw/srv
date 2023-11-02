@@ -37,7 +37,7 @@ export default function PromptTextArea() {
                 if (value.length > 255) {
                   setbigPrompt(true);
                   toast.error(
-                    "The prompt shouldn'be longer than 255 characters"
+                    "The prompt shouldn't be longer than 255 characters"
                   );
                   return;
                 }
@@ -46,7 +46,7 @@ export default function PromptTextArea() {
                 setDisable(true);
                 try {
                   let res = await fetch(
-                    `https://jolly-still-lark.ngrok-free.app/generate/?enhance=${!raw}`,
+                    `https://jolly-still-lark.ngrok-free.app/generate/free/?enhance=${!raw}`,
                     {
                       method: 'POST',
                       headers: {
