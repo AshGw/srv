@@ -4,7 +4,7 @@ use image::io::Reader as ImageReader;
 use crate::processor::processor::overlay_images;
 
 fn main() {
-    let logo_path = "./logo.png";
+    let logo_path = "./logo-trademark.png";
     let logo_image = ImageReader::open(logo_path).expect("Failed to open logo image").decode().unwrap();
 
     let main_path = "./alien.jpg";
