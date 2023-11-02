@@ -1,5 +1,5 @@
 {
-  "name": "Node.js & TypeScript",
+  "name": "Dashboard",
   "dockerFile": "Dockerfile",
   "postCreateCommand": "npm install",
   "postStartCommand": "npm run prepare; chmod +x .husky/pre-commit ; npm run dev"
