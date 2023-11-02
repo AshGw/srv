@@ -22,8 +22,6 @@ export default function MainNavBar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   return (
-    <header>
-      <nav>
         <Navbar
           isBordered
           isMenuOpen={isMenuOpen}
@@ -59,7 +57,5 @@ export default function MainNavBar() {
             <SCDropDownMenue></SCDropDownMenue>
           </NavbarMenu>
         </Navbar>
-      </nav>
-    </header>
   );
 }
