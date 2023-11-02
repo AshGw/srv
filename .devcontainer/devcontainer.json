@@ -1,6 +1,6 @@
 {
   "name": "Node.js & TypeScript",
-  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bullseye",
+  "dockerFile": "Dockerfile",
   "postCreateCommand": "npm install",
   "postStartCommand": "npm run prepare; chmod +x .husky/pre-commit ; npm run dev"
 }
