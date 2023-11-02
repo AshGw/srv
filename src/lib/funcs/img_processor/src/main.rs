@@ -1,4 +1,4 @@
-use image::{DynamicImage, imageops};
+use image::{DynamicImage, imageops, io::Reader as ImageReader};
 
 pub fn overlay_images(logo_image: DynamicImage, main_image: DynamicImage) -> DynamicImage {
     let mut main_rgba = main_image.to_rgba8();
@@ -24,4 +24,17 @@ pub fn overlay_images(logo_image: DynamicImage, main_image: DynamicImage) -> Dyn
     imageops::overlay(&mut main_rgba, &logo_rgba, logo_position_x, logo_position_y);
 
     DynamicImage::ImageRgba8(main_rgba)
+}
+
+fn main() {
+    let logo_path = "./overlay.png";
+    let logo_image = ImageReader::open(logo_path).expect("Failed to open logo image").decode().unwrap();
+
+    let main_path = "./base.jpg";
+    let main_image = ImageReader::open(main_path).expect("Failed to open main image").decode().unwrap();
+
+    let result_image = overlay_images(logo_image, main_image);
+
+    let output_path = "./alien_with_logo.jpg";
+    result_image.save(output_path).expect("Failed to save result image");
 }

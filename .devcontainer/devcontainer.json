@@ -1,7 +1,7 @@
 {
   "name": "Node.js & TypeScript",
   "dockerFile": "Dockerfile",
-  // rust installation is nt needed when finished with the binaries 
-  "postCreateCommand": "npm install; chmod +x setup/install_rust.sh && ./setup/install_rust.sh", 
+  // rust installation is nt needed when finished with the binaries
+  "postCreateCommand": "npm install; chmod +x setup/install_rust.sh && ./setup/install_rust.sh",
   "postStartCommand": "npm run prepare; chmod +x .husky/pre-commit ; npm run dev"
 }
