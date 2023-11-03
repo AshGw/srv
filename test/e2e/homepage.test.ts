@@ -11,7 +11,11 @@ test('test', async ({ page }) => {
   await page.getByRole('link', { name: 'LOGO' }).first().click();
   await page.getByPlaceholder('Your prompt..').fill('landscape of');
   await page.getByRole('button', { name: 'Generate' }).click();
-  await page.locator('ul').filter({ hasText: 'Toggle theme' }).locator('div').click();
+  await page
+    .locator('ul')
+    .filter({ hasText: 'Toggle theme' })
+    .locator('div')
+    .click();
   await page.getByRole('button', { name: 'Sign in' }).click();
   await page.goto('http://localhost:3000/');
   await page.getByRole('button', { name: 'Toggle theme' }).click();

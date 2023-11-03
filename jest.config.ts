@@ -8,4 +8,7 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  testPathIgnorePatterns: [
+    '<rootDir>/test/e2e/', // leaving off these tests for playwright
+  ],
 };
