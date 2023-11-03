@@ -3,8 +3,8 @@
 if command -v rustc &>/dev/null && command -v cargo &>/dev/null; then
     echo "Rust is already installed."
 else
-    apt-get update
-    apt install curl -y
+    sudo apt-get update
+    sudo apt install curl -y
     curl https://sh.rustup.rs -sSf | sh -s -- -y
 
     export PATH="$HOME/.cargo/bin:$PATH"

@@ -35,6 +35,11 @@ next-env.d.ts
 
 *boss_moves.txt
 
-# Added by cargo
-
+# For Rust 
 *target/
+
+# For Playwright 
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
