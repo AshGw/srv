@@ -4,7 +4,9 @@
   // rust installation is not needed when finished with the binaries
   "postCreateCommand": "npm install ; chmod +x setup/install_rust.sh && ./setup/install_rust.sh",
   "postStartCommand": "npm run prepare; chmod +x .husky/pre-commit ; chmod +x setup/install_playwright.sh && ./setup/install_playwright.sh ; npm run dev",
-  "remoteEnv": {
-    "DISPLAY": ":0"
-  }
+  "runArgs": [
+		"--net", "host", 
+    "-e", "DISPLAY=host.docker.internal:0",
+    "-v", "/tmp/.X11-unix:/tmp/.X11-unix"
+	]
 }
