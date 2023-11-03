@@ -9,6 +9,8 @@
     "unifiedjs.vscode-mdx",
     "Zignd.html-css-class-completion",
     "github.vscode-github-actions",
-    "rust-lang.rust-analyzer"
+    "rust-lang.rust-analyzer",
+    "ms-playwright.playwright",
+    "ms-azuretools.vscode-docker"
   ]
 }

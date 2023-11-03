@@ -1,7 +1,10 @@
 {
   "name": "Node.js & TypeScript",
   "dockerFile": "Dockerfile",
-  // rust installation is nt needed when finished with the binaries
-  "postCreateCommand": "npm install; chmod +x setup/install_rust.sh && ./setup/install_rust.sh",
-  "postStartCommand": "npm run prepare; chmod +x .husky/pre-commit ; npm run dev"
+  // rust installation is not needed when finished with the binaries
+  "postCreateCommand": "npm install ; chmod +x setup/install_rust.sh && ./setup/install_rust.sh",
+  "postStartCommand": "npm run prepare; chmod +x .husky/pre-commit ; chmod +x setup/install_playwright.sh && ./setup/install_playwright.sh ; npm run dev",
+  "remoteEnv": {
+    "DISPLAY": ":0"
+  }
 }
