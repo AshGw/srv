@@ -28,6 +28,7 @@ const env = {
       MCS: 'https://jolly-still-lark.ngrok-free.app',
       SITE: 'https://aipicgen.vercel.app',
       LOGO: 'https://github-production-user-asset-6210df.s3.amazonaws.com/126174609/275323996-cf3911ab-d85a-43b1-95cd-4dd96e247db1.png',
+      LOGO_DARK: "https://github-production-user-asset-6210df.s3.amazonaws.com/126174609/275323996-cf3911ab-d85a-43b1-95cd-4dd96e247db1.png"
     },
   },
 };

@@ -61,7 +61,7 @@ export default function FullMeDropDownMenue() {
 
   const { data: session } = useSession();
 
-  const clinetBuysCredits = () => {
+  const clientBuysCredits = () => {
     // pass for now
   };
   const clientSignsIn = () => {
@@ -92,33 +92,29 @@ export default function FullMeDropDownMenue() {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-56">
           <DropdownMenuGroup>
-            <DropdownMenuItem>
+            <DropdownMenuItem disabled={disable}>
               <User className="mr-2 h-4 w-4" />
               <span>Profile</span>
               <DropdownMenuShortcut className="hidden md:inline-block">
                 ⇧⌘P
               </DropdownMenuShortcut>
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem disabled={disable}>
               <CreditCard className="mr-2 h-4 w-4" />
               <span>Billing</span>
               <DropdownMenuShortcut className="hidden md:inline-block">
                 ⌘B
               </DropdownMenuShortcut>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Settings className="mr-2 h-4 w-4" />
-              <span>Settings</span>
-              <DropdownMenuShortcut className="hidden md:inline-block">
-                ⌘S
-              </DropdownMenuShortcut>
-            </DropdownMenuItem>
-            <DropdownMenuItem disabled={true}>
+            
+            <DropdownMenuItem disabled={disable}>
               <Cloud className="mr-2 h-4 w-4" />
               <span>API</span>
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
+
+          {/* 
           <DropdownMenuGroup>
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>
@@ -140,7 +136,8 @@ export default function FullMeDropDownMenue() {
               </DropdownMenuPortal>
             </DropdownMenuSub>
           </DropdownMenuGroup>
-          <DropdownMenuSeparator />
+          <DropdownMenuSeparator />    
+          */}
           <DropdownMenuItem>
             <VenetianMask className="mr-2 h-4 w-4" />
             <span>Privacy</span>
@@ -167,7 +164,7 @@ export default function FullMeDropDownMenue() {
               className="w-full"
               onClick={() => {
                 if (session) {
-                  clinetBuysCredits();
+                  clientBuysCredits();
                 } else {
                   clientSignsIn();
                 }

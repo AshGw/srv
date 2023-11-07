@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import Public from '../../public/consts';
+import env from '@/lib/env'
 
 test('test', async ({ page }) => {
-  await page.goto(Public.URLs.URL as string);
+  await page.goto(env.public.URLs.SITE);
 });
