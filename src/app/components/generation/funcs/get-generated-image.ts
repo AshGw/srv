@@ -14,11 +14,11 @@ export type ErrorFetch = {
 }
 
 export function isBadFetch(obj: any): obj is ErrorFetch {
-    return 'statusCode' in obj && 'errorMessage' in obj;
-  }
+  return typeof obj === 'object' && 'statusCode' in obj && 'errorMessage' in obj;
+}
 
 
-export async  function getImage(value: string,raw:boolean):  Promise<Blob | ErrorFetch | undefined> {
+export async  function getImage(prompt: string,raw:boolean):  Promise<Blob | ErrorFetch | undefined> {
     try {
         let res = await fetch(
           env.public.URLs.MCS + `/generate/free/?enhance=${!raw}`,
@@ -29,7 +29,7 @@ export async  function getImage(value: string,raw:boolean):  Promise<Blob | Erro
               Authorization: // do not forget the spacing for Bearer 
                 'Bearer' + ' ' + env.public.ClientTestTokens.FREE,  // will be auto set with the session 
             },
-            body: JSON.stringify({ prompt: value }),
+            body: JSON.stringify({ prompt: prompt }),
           }
         );
 
@@ -66,11 +66,12 @@ export async  function getImage(value: string,raw:boolean):  Promise<Blob | Erro
         const blob = await res.blob();
         return blob ; 
         }
+        throw new Error('Unexpected response from the server, Probable server down');
       } catch (error) {
         // Unexpected but it can happen 
         return {
             statusCode: ErrorStatusCode.BAD_FETCH, 
-            errorMessage: "Error occured while fetching"
-        } ; 
+            errorMessage: `Error occured while fetching: ${error}`
+        }; 
       }
 }

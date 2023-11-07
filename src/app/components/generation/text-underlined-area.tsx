@@ -9,7 +9,7 @@ import { getImage, isBadFetch, ErrorStatusCode} from '@/app/components/generatio
 
 export default function PromptTextArea() {
   const [disable, setDisable] = useState(false);
-  const [value, setValue] = React.useState('');
+  const [prompt, setPrompt] = React.useState('');
   const [bigPrompt, setbigPrompt] = useState(false);
   const [raw, setRaw] = useState(true);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
@@ -25,17 +25,17 @@ export default function PromptTextArea() {
               labelPlacement="outside"
               placeholder="Your prompt.."
               isDisabled={disable}
-              value={value}
-              onValueChange={setValue}
+              value={prompt}
+              onValueChange={setPrompt}
             />{' '}
             <Button
               disabled={disable}
               onClick={async () => {
-                if (!value) {
+                if (!prompt) {
                   toast.error("Can't generate nothing");
                   return;
                 }
-                if (value.length > 255) {
+                if (prompt.length > 255) {
                   setbigPrompt(true);
                   toast.error(
                     "The prompt shouldn't be longer than 255 characters"
@@ -46,7 +46,7 @@ export default function PromptTextArea() {
                 setbigPrompt(false);
                 setDisable(true);
                // requesting the image from the server
-               const fetchResult = await getImage(value,raw);
+               const fetchResult = await getImage(prompt,raw);
                if (isBadFetch(fetchResult)){
                 // returning a silent error to the client  as a toast 
 
