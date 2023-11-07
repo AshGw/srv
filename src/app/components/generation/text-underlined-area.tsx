@@ -5,7 +5,7 @@ import { Image } from '@nextui-org/react';
 import { Button } from '../ui/button';
 import { Toaster, toast } from 'sonner';
 import { Switch } from '@nextui-org/react';
-import env  from '@/lib/env'
+import env from '@/lib/env';
 
 export default function PromptTextArea() {
   const [disable, setDisable] = useState(false);
@@ -52,7 +52,8 @@ export default function PromptTextArea() {
                       method: 'POST',
                       headers: {
                         'Content-Type': 'application/json',
-                        Authorization: 'Bearer' + ' ' + env.public.ClientTestTokens.FREE , // do not forget the spacing
+                        Authorization:
+                          'Bearer' + ' ' + env.public.ClientTestTokens.FREE, // do not forget the spacing
                       },
                       body: JSON.stringify({ prompt: value }),
                     }
