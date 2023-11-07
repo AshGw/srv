@@ -8,7 +8,7 @@ import { useTheme } from 'next-themes';
 import env from '@/lib/env';
 
 const logoSourceLight = LogoLight;
-const logoSourceDark = env.public.URLs.LOGO_DARK
+const logoSourceDark = env.public.URLs.LOGO_DARK;
 function Logo() {
   const { theme } = useTheme();
 

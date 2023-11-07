@@ -2,10 +2,10 @@
 import React, { useState } from 'react';
 import { Textarea } from '@nextui-org/react';
 import { Image } from '@nextui-org/react';
-import { Button } from '../ui/button';
+import { Button } from '@/app/components/ui/button';
 import { Toaster, toast } from 'sonner';
 import { Switch } from '@nextui-org/react';
-import env from '@/lib/env';
+import { getImage, isBadFetch, ErrorStatusCode} from '@/app/components/generation/funcs/get-generated-image';
 
 export default function PromptTextArea() {
   const [disable, setDisable] = useState(false);
@@ -45,47 +45,35 @@ export default function PromptTextArea() {
                 toast.loading('Generating..');
                 setbigPrompt(false);
                 setDisable(true);
-                try {
-                  let res = await fetch(
-                    env.public.URLs.MCS + `/generate/free/?enhance=${!raw}`,
-                    {
-                      method: 'POST',
-                      headers: {
-                        'Content-Type': 'application/json',
-                        Authorization:
-                          'Bearer' + ' ' + env.public.ClientTestTokens.FREE, // do not forget the spacing
-                      },
-                      body: JSON.stringify({ prompt: value }),
-                    }
-                  );
+               // requesting the image from the server
+               const fetchResult = await getImage(value,raw);
+               if (isBadFetch(fetchResult)){
+                // returning a silent error to the client  as a toast 
 
-                  if (!res.ok) {
-                    toast.error('Something went wrong with the server');
-                    setDisable(false);
-                  }
-
-                  const contentType = res.headers.get('content-type');
-                  if (contentType && contentType.includes('application/json')) {
-                    const data = await res.json();
-                    toast.error(
-                      'Data type is JSON, not an image go check the server'
-                    );
-                    setDisable(false);
-                  } else if (
-                    contentType &&
-                    contentType.includes('image/jpeg')
-                  ) {
-                    toast.success('Image generation went successful');
-
-                    const blob = await res.blob();
-                    const imageUrl = URL.createObjectURL(blob);
-                    setGeneratedImage(imageUrl);
-                    setDisable(false);
-                  }
-                } catch (error) {
-                  console.log('Some error with ur code G, check yosself');
+                toast.error('Oops! Looks like some error has occured')
+                if (fetchResult.statusCode == ErrorStatusCode.BAD_FETCH) {
+                  console.log(fetchResult.errorMessage)
                   setDisable(false);
                 }
+                if (fetchResult.statusCode == ErrorStatusCode.BAD_REQUEST) {
+                  console.log(fetchResult.errorMessage)
+                  setDisable(false);
+                }
+                if (fetchResult.statusCode == ErrorStatusCode.PROXY) {
+                  console.log(fetchResult.errorMessage)
+                  setDisable(false);
+                }
+                if (fetchResult.statusCode == ErrorStatusCode.THIRD_PARTY) {
+                  console.log(fetchResult.errorMessage)
+                  setDisable(false);
+                }
+              }  
+               if (fetchResult instanceof Blob){
+                  toast.success('Image generation went successful');
+                  const imageUrl = URL.createObjectURL(fetchResult);
+                  setGeneratedImage(imageUrl);
+                  setDisable(false);
+               }
               }}
             >
               Generate

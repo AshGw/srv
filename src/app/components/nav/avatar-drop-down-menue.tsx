@@ -106,7 +106,7 @@ export default function FullMeDropDownMenue() {
                 ⌘B
               </DropdownMenuShortcut>
             </DropdownMenuItem>
-            
+
             <DropdownMenuItem disabled={disable}>
               <Cloud className="mr-2 h-4 w-4" />
               <span>API</span>
