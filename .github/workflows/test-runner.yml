@@ -22,6 +22,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
+      - name: Set up .env
+        run: |
+            echo '${{ secrets.ENV_VARS }}' >> .env
       - name: Installing dependencies & initial setup
         run: |
           npm install 

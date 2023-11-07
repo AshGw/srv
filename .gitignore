@@ -43,3 +43,7 @@ next-env.d.ts
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+
+# only_dev 
+.env
