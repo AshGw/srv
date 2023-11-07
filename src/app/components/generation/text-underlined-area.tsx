@@ -5,12 +5,14 @@ import { Image } from '@nextui-org/react';
 import { Button } from '../ui/button';
 import { Toaster, toast } from 'sonner';
 import { Switch } from '@nextui-org/react';
+import Public from '@/../public/consts'
+
 
 export default function PromptTextArea() {
   const [disable, setDisable] = useState(false);
   const [value, setValue] = React.useState('');
-  const [bigPrompt, setbigPrompt] = React.useState(false);
-  const [raw, setRaw] = React.useState(true);
+  const [bigPrompt, setbigPrompt] = useState(false);
+  const [raw, setRaw] = useState(true);
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
 
   return (
@@ -46,13 +48,13 @@ export default function PromptTextArea() {
                 setDisable(true);
                 try {
                   let res = await fetch(
-                    `https://jolly-still-lark.ngrok-free.app/generate/free/?enhance=${!raw}`,
+                    Public.URLs.MCS_URL + `/generate/free/?enhance=${!raw}`,
                     {
                       method: 'POST',
                       headers: {
                         'Content-Type': 'application/json',
                         Authorization:
-                          'Bearer f8ae9e72a17052cee5bffb816fc724e3b9273c02e3f3483a95df4e98a9cce2b2',
+                          'Bearer ' + Public.ClientTestTokens.free , // do not forget the spacing 
                       },
                       body: JSON.stringify({ prompt: value }),
                     }
