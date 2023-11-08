@@ -34,9 +34,9 @@
     "compilerOptions": {
       "baseUrl": "./",
       "paths": {
-        "@/*":  ["./src/*"],
+        "@/*": ["./src/*"]
       },
-      "module": "CommonJS",
+      "module": "CommonJS"
     }
   }
 }

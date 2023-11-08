@@ -4,4 +4,4 @@ module.exports = {
     autoprefixer: {},
   },
 };
-z
+z;
