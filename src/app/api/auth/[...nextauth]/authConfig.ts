@@ -5,11 +5,10 @@ import GoogleProvider from 'next-auth/providers/google';
 import { addUserIfNotExists } from '@/lib/funcs/database/user/operations';
 import env from '@/lib/env';
 
-
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 export const authOptions: NextAuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET as string,
+  secret: env.prod.NEXTAUTH_SECRET,
   theme: {
     colorScheme: 'auto',
     logo: env.public.URLs.LOGO,
@@ -19,11 +18,11 @@ export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: isDevelopment
-        ? (env.dev.GOOGLE_CLIENT_ID)
-        : (env.prod.GOOGLE_CLIENT_ID),
+        ? env.dev.GOOGLE_CLIENT_ID
+        : env.prod.GOOGLE_CLIENT_ID,
       clientSecret: isDevelopment
-        ? (env.dev.GOOGLE_CLIENT_SECRET)
-        : (env.prod.GOOGLE_CLIENT_SECRET),
+        ? env.dev.GOOGLE_CLIENT_SECRET
+        : env.prod.GOOGLE_CLIENT_SECRET,
     }),
   ],
   debug: isDevelopment,
