@@ -2,26 +2,37 @@
 
 import { NextAuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
-import NextAuth from 'next-auth/next';
+import { addUserIfNotExists } from '@/lib/funcs/database/user/operations';
+import env from '@/lib/env';
+
+
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET as string,
   theme: {
     colorScheme: 'auto',
-    logo: process.env.LOGO_URL as string,
+    logo: env.public.URLs.LOGO,
     brandColor: '#ffffff',
     buttonText: '#000000',
   },
   providers: [
     GoogleProvider({
       clientId: isDevelopment
-        ? (process.env.DEV_GOOGLE_CLIENT_ID as string)
-        : (process.env.GOOGLE_CLIENT_ID as string),
+        ? (env.dev.GOOGLE_CLIENT_ID)
+        : (env.prod.GOOGLE_CLIENT_ID),
       clientSecret: isDevelopment
-        ? (process.env.DEV_GOOGLE_CLIENT_SECRET as string)
-        : (process.env.GOOGLE_CLIENT_SECRET as string),
+        ? (env.dev.GOOGLE_CLIENT_SECRET)
+        : (env.prod.GOOGLE_CLIENT_SECRET),
     }),
   ],
-  debug: process.env.NEXT_ENV === 'development',
+  debug: isDevelopment,
+  callbacks: {
+    async signIn({ profile }) {
+      if (profile && profile.email) {
+        await addUserIfNotExists(profile.email as string);
+      }
+      return true;
+    },
+  },
 };

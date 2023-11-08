@@ -26,6 +26,7 @@ export async function addUserIfNotExists(email: string) {
 
     return false;
   } catch (error) {
+    // log this out to a logging service or some 
     return error;
   } finally {
     await prisma.$disconnect();
