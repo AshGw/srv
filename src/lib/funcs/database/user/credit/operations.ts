@@ -23,7 +23,7 @@ export async function removeCredits(email: string, amount: number) {
           },
         });
 
-        return true; // User indeed exists and subtracted credit
+        return true; // User indeed exists ==> subtract credits
       } else {
         return false; // User exists, but not enough credits to decrement
       }

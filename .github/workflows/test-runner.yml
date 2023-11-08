@@ -34,3 +34,5 @@ jobs:
         run: npx jest --testPathPattern=code
       - name: Running client tests
         run: npx jest --testPathPattern=client
+      - name: Running lib tests
+        run: npx jest --testPathPattern=lib
