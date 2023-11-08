@@ -20,4 +20,3 @@ export function scopesSetter<Event extends keyof UserMapper>(
 
 console.log(scopesSetter('client', { plan: 'free' }));
 console.log(scopesSetter('server', { access: 'admin' }));
-

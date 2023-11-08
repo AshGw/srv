@@ -29,14 +29,5 @@
     ".next/types/**/*.ts",
     "test"
   ],
-  "exclude": ["node_modules"],
-  "ts-node": {
-    "compilerOptions": {
-      "baseUrl": "./",
-      "paths": {
-        "@/*": ["./src/*"]
-      },
-      "module": "CommonJS"
-    }
-  }
+  "exclude": ["node_modules"]
 }
