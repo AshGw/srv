@@ -5,7 +5,11 @@ import { Image } from '@nextui-org/react';
 import { Button } from '@/app/components/ui/button';
 import { Toaster, toast } from 'sonner';
 import { Switch } from '@nextui-org/react';
-import { getImage, isBadFetch, ErrorStatusCode} from '@/app/components/generation/funcs/get-generated-image';
+import {
+  getImage,
+  isBadFetch,
+  ErrorStatusCode,
+} from '@/app/components/generation/funcs/get-generated-image';
 
 export default function PromptTextArea() {
   const [disable, setDisable] = useState(false);
@@ -45,35 +49,35 @@ export default function PromptTextArea() {
                 toast.loading('Generating..');
                 setbigPrompt(false);
                 setDisable(true);
-               // requesting the image from the server
-               const fetchResult = await getImage(prompt,raw);
-               if (isBadFetch(fetchResult)){
-                // returning a silent error to the client  as a toast 
+                // requesting the image from the server
+                const fetchResult = await getImage(prompt, raw);
+                if (isBadFetch(fetchResult)) {
+                  // returning a silent error to the client  as a toast
 
-                toast.error('Oops! Looks like some error has occured')
-                if (fetchResult.statusCode == ErrorStatusCode.BAD_FETCH) {
-                  console.log(fetchResult.errorMessage)
-                  setDisable(false);
+                  toast.error('Oops! Looks like some error has occured');
+                  if (fetchResult.statusCode == ErrorStatusCode.BAD_FETCH) {
+                    console.log(fetchResult.errorMessage);
+                    setDisable(false);
+                  }
+                  if (fetchResult.statusCode == ErrorStatusCode.BAD_REQUEST) {
+                    console.log(fetchResult.errorMessage);
+                    setDisable(false);
+                  }
+                  if (fetchResult.statusCode == ErrorStatusCode.PROXY) {
+                    console.log(fetchResult.errorMessage);
+                    setDisable(false);
+                  }
+                  if (fetchResult.statusCode == ErrorStatusCode.THIRD_PARTY) {
+                    console.log(fetchResult.errorMessage);
+                    setDisable(false);
+                  }
                 }
-                if (fetchResult.statusCode == ErrorStatusCode.BAD_REQUEST) {
-                  console.log(fetchResult.errorMessage)
-                  setDisable(false);
-                }
-                if (fetchResult.statusCode == ErrorStatusCode.PROXY) {
-                  console.log(fetchResult.errorMessage)
-                  setDisable(false);
-                }
-                if (fetchResult.statusCode == ErrorStatusCode.THIRD_PARTY) {
-                  console.log(fetchResult.errorMessage)
-                  setDisable(false);
-                }
-              }  
-               if (fetchResult instanceof Blob){
+                if (fetchResult instanceof Blob) {
                   toast.success('Image generation went successful');
                   const imageUrl = URL.createObjectURL(fetchResult);
                   setGeneratedImage(imageUrl);
                   setDisable(false);
-               }
+                }
               }}
             >
               Generate
