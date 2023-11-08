@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
-import env from '@/lib/env';
+import env from '../../src/lib/env';
 
 test('test', async ({ page }) => {
-  await page.goto(env.public.URLs.SITE);
+  const site  = env.public.URLs.SITE
+  await page.goto(site);
 });
