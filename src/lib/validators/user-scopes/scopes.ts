@@ -1,8 +1,10 @@
-interface ClientPlans {
-  plan: 'free' | 'hobby' | 'pro';
+export type Plan = 'free' | 'hobby' | 'pro'; 
+
+export interface ClientPlans {
+  plan: Plan
 }
 
-interface ServerAccess {
+export interface ServerAccess {
   access?: 'admin' | 'non-admin';
 }
 
@@ -11,9 +13,9 @@ export interface UserMapper {
   client: ClientPlans;
 }
 
-export function scopesSetter<Event extends keyof UserMapper>(
-  e: Event,
-  data: UserMapper[Event]
-): Record<Event, UserMapper[Event]> {
-  return { [e]: data } as Record<Event, UserMapper[Event]>;
+export function scopesSetter<SpecialScope extends keyof UserMapper>(
+  e: SpecialScope,
+  data: UserMapper[SpecialScope]
+): Record<SpecialScope, UserMapper[SpecialScope]> {
+  return { [e]: data } as Record<SpecialScope, UserMapper[SpecialScope]>;
 }

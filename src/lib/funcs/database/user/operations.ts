@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/funcs/database/db/client';
 import { isGmail, gmailParser } from '@/lib/funcs/reusables/gmail-parser';
+import { setScopes } from '@/lib/validators/user-scopes/objectifier';
 
 const STARTER_ACCOUNT_CREDITS = 100;
 
@@ -19,6 +20,7 @@ export async function addUserIfNotExists(email: string) {
         data: {
           email: rawEmail,
           accountCredit: STARTER_ACCOUNT_CREDITS,
+          scopes: setScopes.forClient.setPlan.toFree.makeObject() as any,
         },
       });
       return true;
