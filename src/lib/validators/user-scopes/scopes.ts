@@ -17,6 +17,3 @@ export function scopesSetter<Event extends keyof UserMapper>(
 ): Record<Event, UserMapper[Event]> {
   return { [e]: data } as Record<Event, UserMapper[Event]>;
 }
-
-console.log(scopesSetter('client', { plan: 'free' }));
-console.log(scopesSetter('server', { access: 'admin' }));
