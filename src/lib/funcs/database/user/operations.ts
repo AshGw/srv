@@ -1,5 +1,5 @@
 import { prisma } from '@/lib/funcs/database/db/client';
-import { isGmail, gmailParser } from '@/lib/funcs/reusables/gmail-parser';
+import { isGmail, gmailParser } from '@/lib/validators/parsers/gmail-parser';
 import { setScopes } from '@/lib/validators/user-scopes/objectifier';
 
 const STARTER_ACCOUNT_CREDITS = 100;

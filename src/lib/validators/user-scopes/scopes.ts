@@ -1,11 +1,12 @@
 export type Plan = 'free' | 'hobby' | 'pro'; 
+export type Access = 'admin' | 'non-admin'; 
 
 export interface ClientPlans {
   plan: Plan
 }
 
 export interface ServerAccess {
-  access?: 'admin' | 'non-admin';
+  access: Access;
 }
 
 export interface UserMapper {
