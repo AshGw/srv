@@ -12,5 +12,4 @@ describe('adding/deleting a given user', () => {
     await addUserIfNotExists(createdEmail);
     await deleteUser(createdEmail);
   });
-
 });
