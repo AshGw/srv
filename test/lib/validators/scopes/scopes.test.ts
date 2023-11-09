@@ -1,4 +1,4 @@
-import { scopesSetter, UserMapper } from '@/lib/validators/scopes';
+import { scopesSetter, UserMapper } from '@/lib/validators/user-scopes/scopes';
 
 // values are literally hard-coded here cuz they never ever meant to change
 // this verfies if the function DID NOT break

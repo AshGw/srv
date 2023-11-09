@@ -1,4 +1,4 @@
-import { gmailParser, isGmail } from '@/lib/funcs/reusables/gmail-parser';
+import { gmailParser, isGmail } from '@/lib/validators/parsers/gmail-parser';
 
 describe('gmailParser function', () => {
   test('should parse Gmails correctly', () => {
