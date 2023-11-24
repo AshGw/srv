@@ -1,6 +1,6 @@
 #!/bin/bash
 
-npx playwright install --with-deps -y 
+npx playwright install --with-deps
 # Do it on WSL 
 # sudo apt-get install xauth -y
 # sudo apt-get install -y xvfb
