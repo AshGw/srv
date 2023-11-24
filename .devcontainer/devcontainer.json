@@ -2,8 +2,9 @@
   "name": "Node.js & TypeScript",
   "dockerFile": "Dockerfile",
   // rust installation is not needed when finished with the binaries
-  "postCreateCommand": "npm install ; chmod +x setup/install_rust.sh && ./setup/install_rust.sh",
-  "postStartCommand": "npm run prepare; chmod +x .husky/pre-commit ; chmod +x setup/install_playwright.sh && ./setup/install_playwright.sh ; npm run dev",
+  "postCreateCommand": "chmod +x setup/post_create.sh && ./setup/post_create.sh",
+  "postStartCommand": "chmod +x setup/post_start.sh && ./setup/post_start.sh",
+  // this below just allows to access test browsers from within the conatiner
   "runArgs": [
     "--net",
     "host",
