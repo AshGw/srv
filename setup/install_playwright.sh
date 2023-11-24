@@ -1,6 +1,5 @@
 #!/bin/bash
 
-sudo apt-get update 
 npx playwright install --with-deps -y 
 # Do it on WSL 
 # sudo apt-get install xauth -y
