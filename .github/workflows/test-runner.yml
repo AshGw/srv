@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+      - prod-preview
   pull_request:
     branches:
       - main
+      - prod-preview
     types:
       - opened
       - synchronize
@@ -36,3 +38,5 @@ jobs:
         run: npx jest --testPathPattern=client
       - name: Running lib tests
         run: npx jest --testPathPattern=lib
+      - name: Running user tests
+        run: npx jest --testPathPattern=user
