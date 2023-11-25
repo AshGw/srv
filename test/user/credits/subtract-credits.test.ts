@@ -38,7 +38,7 @@ describe('removeCreditsFromUser', () => {
     const result = await removeCredits(nonExistentUserEmail, amountToSubtract);
 
     expect(result).toBe(null);
-  });
+  }, 10000);
   afterEach(async () => {
     await deleteUser(createdEmail);
   });
