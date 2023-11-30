@@ -1,4 +1,4 @@
-name: test-runner
+name: unit
 
 on:
   push:
@@ -14,24 +14,25 @@ on:
       - synchronize
 
 jobs:
-  run-tests:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node-version: [16, 17, 18, 19, 20]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
       - name: Set up .env
-        run: |
-          echo '${{ secrets.ENV_VARS }}' >> .env
-      - name: Installing dependencies & initial setup
-        run: |
-          npm install 
-          npx prisma generate
-
+        run: echo '${{ secrets.ENV_VARS }}' >> .env
+      - name: Install dependencies w/ setup
+        run: pnpm install && pnpm prisma generate
       - name: Running code tests
         run: npx jest --testPathPattern=code
       - name: Running client tests
