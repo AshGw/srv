@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "pnpm prisma generate && next build",
     "start": "next start",
-    "test": "jest; cd test/e2e && pnpm playwright test",
+    "test": "jest; cd test/e2e && npx playwright test",
     "lint": "next lint",
     "prepare": "husky install",
     "prettier-check": "prettier --check .",
