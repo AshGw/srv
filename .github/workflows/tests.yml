@@ -29,10 +29,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
-      - name: Install dependencies w/ setup
-        run: pnpm install && pnpm prisma generate
       - name: Set up .env
         run: echo '${{ secrets.ENV_VARS }}' >> .env
+      - name: Install dependencies w/ setup
+        run: pnpm install && pnpm prisma generate
       - name: Running code tests
         run: npx jest --testPathPattern=code
       - name: Running client tests
