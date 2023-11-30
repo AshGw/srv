@@ -17,11 +17,11 @@ jobs:
         run: |
           echo '${{ secrets.ENV_VARS }}' >> .env
       - name: Install dependencies
-        run: npm ci
+      - run: npm install -g pnpm &&  pnpm install --frozen-lockfile
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: chmod +x ./setup/install_playwright.sh && ./setup/install_playwright.sh
       - name: Run Playwright tests
-        run: cd test/e2e && npx playwright test
+        run: cd test/e2e && pnpm playwright test
       - uses: actions/upload-artifact@v3
         if: always()
         with:
