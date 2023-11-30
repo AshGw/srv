@@ -4,7 +4,7 @@
   // rust installation is not needed when finished with the binaries
   "postCreateCommand": "chmod +x setup/post_create.sh && ./setup/post_create.sh",
   "postStartCommand": "chmod +x setup/post_start.sh && ./setup/post_start.sh",
-  // this below just allows to access test browsers from within the conatiner
+  // this below just allows to access test browsers from within the container
   "runArgs": [
     "--net",
     "host",
