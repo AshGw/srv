@@ -20,7 +20,6 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
@@ -32,7 +31,6 @@ import {
 
 import { signIn, signOut, useSession } from 'next-auth/react';
 import { Skeleton } from '@/app/components/ui/skeleton';
-import Loading from '@/app/components/reusables/loading/loading';
 import { useState, useEffect } from 'react';
 
 // Make a function to detect user actual API acces tho

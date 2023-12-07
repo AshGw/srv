@@ -4,7 +4,6 @@ config.autoAddCss = false;
 
 import MainNavBar from '@/app/components/nav/navbar';
 import PromptTextArea from '@/app/components/generation/text-underlined-area';
-import PricingCard from './components/pages/pricing/pricing-card';
 
 export default function Home() {
   return (
